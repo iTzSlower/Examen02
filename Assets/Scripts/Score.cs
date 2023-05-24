@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public abstract class Score : MonoBehaviour
+public abstract class Score : MonoBehaviour, IObserver
 {
     [SerializeField]
     protected TMP_Text canTXT;
@@ -21,5 +21,9 @@ public abstract class Score : MonoBehaviour
     protected void Add()
     {
         GameManager.score += scores;
+    }
+    public void Notify()
+    {
+        Debug.Log("Se sumo " + scores);
     }
 }
